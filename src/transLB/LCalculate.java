@@ -48,7 +48,7 @@ public class LCalculate {
 		}
 		
 		DecimalFormat df=new DecimalFormat(".0");
-		String Lvalue=df.format(outd[2]/R_earth);
+		String Lvalue=df.format(outd[2]/R_earth+1);
 		this.LValue=Double.parseDouble(Lvalue);
 		
 		BCalculate bc=new BCalculate(t,outf[0],outf[1],outf[2]);

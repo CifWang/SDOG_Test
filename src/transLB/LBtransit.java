@@ -19,12 +19,21 @@ public class LBtransit {
 		//System.out.println(L+" "+B);
 	}
 	
+	/**
 	public double[] LBCoord(){
 		double[] LB={this.LValue,this.BValue};
 		return LB;
+	}*/
+	
+	public double getLcoord() {
+		return this.LValue;
 	}
 	
+	public double getBcoord() {
+		return this.BValue;
+	}
 	
+	/**
 	public static void main(String[] args){
 		double time=7.3689e+05;
 		try {
@@ -37,7 +46,6 @@ public class LBtransit {
 		} catch (MWException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-	}
+		}*/
 
 }

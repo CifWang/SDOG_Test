@@ -5,5 +5,6 @@
 	<classpathentry kind="lib" path="lib/netcdfAll-4.6.jar"/>
 	<classpathentry kind="lib" path="lib/IGRF.jar"/>
 	<classpathentry kind="lib" path="lib/javabuilder.jar"/>
+	<classpathentry kind="lib" path="/Users/cifengwang/Documents/hadoop-2.7.5/share/hadoop/mapreduce/hadoop-mapreduce-client-app-2.7.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
