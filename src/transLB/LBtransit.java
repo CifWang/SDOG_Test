@@ -1,4 +1,7 @@
 package transLB;
+/**
+ * transit from LLA(latitude,longitude,altitude) coordinate to LB coordinate
+ */
 
 import com.mathworks.toolbox.javabuilder.MWException;
 

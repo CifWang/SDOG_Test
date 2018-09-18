@@ -1,4 +1,7 @@
 package transLB;
+/**
+ * Calculate Bx,By,Bz,and BTotal
+ */
 
 import java.text.DecimalFormat;
 
@@ -27,6 +30,7 @@ public class BCalculate {
 		TimeFormat tf=new TimeFormat(t);
 		String timestr=tf.getTimestr();
 		
+		//matlab export to jar, and java calls it
 		MWNumericArray latArray=new MWNumericArray(Float.valueOf(lat));
 		MWNumericArray lonArray=new MWNumericArray(Float.valueOf(lon));
 		MWNumericArray altArray=new MWNumericArray(Float.valueOf(alt));
@@ -47,6 +51,7 @@ public class BCalculate {
 		return this.BTotal;
 	}
 	
+	//B/B0, B value in LB coordinate
 	public double getBValue() throws MWException{
 		LCalculate lc=new LCalculate(this.time,this.lat,this.lon,this.alt);
 		double Be=lc.getBe();

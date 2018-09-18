@@ -1,5 +1,7 @@
 package transLB;
-
+/**
+ * Calculate L value
+ */
 
 import java.text.DecimalFormat;
 
@@ -12,11 +14,12 @@ import com.mathworks.toolbox.javabuilder.MWException;
 import com.mathworks.toolbox.javabuilder.MWNumericArray;
 
 public class LCalculate {
+	
 	public final double R_earth=6371.393;
 	private double time;
 	private final MWNumericArray distance_up=new MWNumericArray(Double.valueOf(90e3),MWClassID.DOUBLE);
-	private final MWNumericArray distance_down=new MWNumericArray(Double.valueOf(-90e3),MWClassID.DOUBLE);
-	private final MWNumericArray nsteps=new MWNumericArray(Double.valueOf(90e3),MWClassID.DOUBLE);
+	private final MWNumericArray distance_down=new MWNumericArray(Double.valueOf(-90e3),MWClassID.DOUBLE);//trance distance
+	private final MWNumericArray nsteps=new MWNumericArray(Double.valueOf(90e3),MWClassID.DOUBLE);//number of points along the track
 	//private Object[][] out;
 	//private float[] result;
 	private double LValue;
@@ -26,10 +29,12 @@ public class LCalculate {
 		TimeFormat tf=new TimeFormat(t);
 		String timestr=tf.getTimestr();
 		String coord="geodetic";
+		
+		//matlab exports to jar, and java calls it
 		MWNumericArray latstArray=new MWNumericArray(Float.valueOf(latst));
 		MWNumericArray lonstArray=new MWNumericArray(Float.valueOf(lonst));
 		MWNumericArray altstArray=new MWNumericArray(Float.valueOf(altst));
-		
+		//if latitude>0, trace down; if latitude<0, trace up
 		MWNumericArray distance;
 		if(latst>=0){
 			distance=distance_down;
@@ -51,6 +56,7 @@ public class LCalculate {
 		String Lvalue=df.format(outd[2]/R_earth+1);
 		this.LValue=Double.parseDouble(Lvalue);
 		
+		// Calculate B Value on equator
 		BCalculate bc=new BCalculate(t,outf[0],outf[1],outf[2]);
 		this.B_equator=bc.getBTotal();
 	}
